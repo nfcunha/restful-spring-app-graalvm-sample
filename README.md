@@ -13,20 +13,29 @@ This project was generated on 24-Oct-2025. Dependency versions may have been upd
 
 - [Java 21 or later](https://jdk.java.net/archive/)
 - [GraalVM](https://www.graalvm.org/downloads/)
+- [Docker](https://www.docker.com/get-started/)
 
 ## 🏗️ Build and Run using Gradle Daemon
 
 To build and run the application using the Gradle daemon, use the following Gradle commands.
 
 ```bash
-./gradlew clean build bootRun --refresh-dependencies
+  ./gradlew clean build bootRun --refresh-dependencies
 ```
 
 This will start the application on `http://localhost:8080` using the Gradle daemon.
 
 ## 🐋 Creating a native image 
 
-To create a native image of the application set the following environment variable.
+> ⚠️ Docker may require sudo privileges depending on your system configuration. Change the commands bellow accordingly.
+
+First, check if Docker is running on your machine. Run the following command which will pull and run the `hello-world` image.
+
+```bash
+  sudo docker run hello-world
+```
+
+To create a native image of the sample application set the following environment variable.
 
 | Environment Variable | Value              |
 |----------------------|--------------------|
@@ -38,7 +47,6 @@ Then run the following command to build the native image using Spring Boot's `bo
 ```bash
   sudo ./gradlew clean build bootBuildImage --imageName=restful-graalvm-sample --refresh-dependencies
 ```
-> ⚠️ You might need to run the command with `sudo` depending on your system configuration.
 
 Check if the image was created successfully by running:
 
