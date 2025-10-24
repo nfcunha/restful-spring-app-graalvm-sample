@@ -54,7 +54,7 @@ Check if the image was created successfully by running:
   sudo docker images | grep restful-graalvm-sample
 ```
 
-## 🚀 Running the native image`
+## 🚀 Running the native image
 
 To run the native image, use the following command:
 
