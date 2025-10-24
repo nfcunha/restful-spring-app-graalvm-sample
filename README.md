@@ -77,3 +77,27 @@ This will return a JSON response like the following. Memory information will var
   "maxMemory": 8338276352
 }
 ```
+
+## 📊 Performance and resource usage comparison
+
+Using an existing repository, I have compiled both the JVM and native image versions of this application and measured their performance and resource usage.
+
+First of all, here are the specifications of the machine used for testing:
+
+- CPU: Intel Core i5-1145G7
+- RAM: 32 GB DDR4
+- OS: Ubuntu 24.04.2 LTS
+- Java Version: OpenJDK 21
+- GraalVM Version: GraalVM 21.3.0
+
+This specific repository contains a service that requires a database connection, which makes it shutdown if there is no connection provided or the connection fails. This makes it possible to measure exactly the startup time until the shutdown is triggered.
+
+Further metrics can be collected using externals tools, but these results already show the advantages of using GraalVM native images for certain applications, especially in terms of startup time and memory footprint.
+
+The results are as follows (approximate values):
+
+| Metric       | JVM 21 Version     | GraalVM Native Image Version |
+|--------------|--------------------|------------------------------|
+| Startup Time | ~3400 milliseconds | ~120 milliseconds            |
+| Image Size   | ~450 MB            | ~360 MB                      |
+
