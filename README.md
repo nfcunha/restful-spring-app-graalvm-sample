@@ -62,7 +62,7 @@ To run the native image, use the following command:
   sudo docker run -p 8080:8080 restful-graalvm-sample:latest
 ```
 
-> ⚠️ The port 8080 is defined as default by Spring. You can change it by setting in the application.properites, defining an environment variable, or passing it as a command-line argument.
+> ⚠️ The default port is defined as 8080 by default by Spring. You can change it by setting in the application.properites, defining an environment variable, or passing it as a command-line argument.
 > If the port is already in use, you can map it to a different port on your host machine by changing the left side of the `-p` option (e.g., `-p 9090:8080` to map to port 9090).
 
 ## 🧪 Testing the application
